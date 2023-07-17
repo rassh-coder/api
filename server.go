@@ -2,19 +2,12 @@ package MyApi
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
+	"github.com/spf13/viper"
 )
 
-func Server(port string) error {
-	r := gin.Default()
+func Server(r *gin.Engine) error {
 
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, map[string]interface{}{
-			"message": "pong",
-		})
-	})
-
-	if err := r.Run(port); err != nil {
+	if err := r.Run(viper.GetString("port")); err != nil {
 		return err
 	}
 	return nil

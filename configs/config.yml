@@ -1,1 +1,7 @@
 port: ":8080"
+db: {
+      username: "root",
+      host: "127.0.0.1",
+      name: "myApiDB",
+      port: "3306"
+}
